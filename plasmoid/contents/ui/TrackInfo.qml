@@ -78,10 +78,11 @@ ColumnLayout {
         elide: Text.ElideRight
         text: {
             if (!root.track) {
+                Plasmoid.icon: "" //"media-playback-playing"
                 return "" //i18n("No media playing")
             }
             if (lineLimit == 1 && root.artist) {
-                return i18nc("artist – track", "%1 – %2", root.artist, root.track)
+                return i18nc("track - artist", "%1 – %2", root.track, root.artist)
             }
             return root.track
         }

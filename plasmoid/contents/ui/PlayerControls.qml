@@ -62,6 +62,7 @@ RowLayout {
         enabled: root.state == "playing" ? root.canPause : root.canPlay
         icon.name: root.state == "playing" ? "media-playback-pause" : "media-playback-start"
         onClicked: root.togglePlaying()
+        visible: canFitPrevNext
     }
 
     PlasmaComponents3.ToolButton {

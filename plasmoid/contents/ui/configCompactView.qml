@@ -38,24 +38,24 @@ Item {
 
         QQC2.CheckBox {
             id: showAlbumArt
-            Kirigami.FormData.label: i18n("Show in panel view:")
-            text: i18n("Album art")
+            Kirigami.FormData.label: i18n("在面板视图中显示:")
+            text: i18n("专辑封面")
         }
 
         QQC2.CheckBox {
             id: showTrackInfo
-            text: i18n("Track information")
+            text: i18n("媒体信息")
         }
 
         QQC2.CheckBox {
             id: showPlaybackControls
-            text: i18n("Playback controls")
+            text: i18n("播放控件")
         }
 
         QQC2.CheckBox {
             id: showProgressBar
             enabled: showAlbumArt.checked || showTrackInfo.checked || showPlaybackControls.checked
-            text: i18n("Progress bar")
+            text: i18n("进度条")
         }
 
         Kirigami.Separator {
@@ -63,7 +63,7 @@ Item {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Width Range:")
+            Kirigami.FormData.label: i18n("宽度:  ")
 
             enabled: cfg_showTrackInfo && plasmoid.formFactor === PlasmaCore.Types.Horizontal
             spacing: PlasmaCore.Units.smallSpacing
@@ -74,7 +74,7 @@ Item {
 
             QQC2.Label {
                 id: lbl_minWidth
-                text: Math.round(widthSlider.proxyFirstValue * PlasmaCore.Units.gridUnit) + "px"
+                text: Math.round(widthSlider.proxyFirstValue * PlasmaCore.Units.gridUnit) + "像素"
                 Layout.preferredWidth: 50
                 horizontalAlignment: Text.AlignRight
             }
@@ -101,8 +101,8 @@ Item {
 
             QQC2.Label {
                 id: lbl_maximumWidth
-                text: (widthSlider.second.position == 1.0) ? i18n("No limit")
-                                                           : Math.round(widthSlider.proxySecondValue * PlasmaCore.Units.gridUnit) + "px"
+                text: (widthSlider.second.position == 1.0) ? i18n("无限")
+                                                           : Math.round(widthSlider.proxySecondValue * PlasmaCore.Units.gridUnit) + "像素"
                 Layout.preferredWidth: 50
                 horizontalAlignment: Text.AlignLeft
             }
@@ -112,20 +112,20 @@ Item {
 
         QQC2.RadioButton {
             id: showPrevNextAlways
-            Kirigami.FormData.label: i18n("Show Previous/Next controls:")
-            text: i18n("Always")
+            Kirigami.FormData.label: i18n("显示上一曲/下一曲按钮:")
+            text: i18n("一直显示")
             enabled: cfg_showPlaybackControls
             checked: cfg_showPrevNextControls === Qt.Checked
         }
         QQC2.RadioButton {
             id: showPrevNextNever
-            text: i18n("Never")
+            text: i18n("不显示")
             enabled: cfg_showPlaybackControls
             checked: cfg_showPrevNextControls === Qt.Unchecked
         }
         QQC2.RadioButton {
             id: showPrevNextWhenEnabled
-            text: i18n("Only when useful")
+            text: i18n("只在可用时显示")
             enabled: cfg_showPlaybackControls
             checked: cfg_showPrevNextControls === Qt.PartiallyChecked
         }

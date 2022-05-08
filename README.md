@@ -1,9 +1,12 @@
-# mediacontroller+
-This is a modified version of mediacontroller plasma5 widget.
+# 媒体播放器·改
+KDE Plasma 媒体播放器小组件的三改版本。
 
-It provides the same functionality as the traditional mediacontroller widget, giving you control over every media player in your system (through the MPRIS2 protocol), but it adapts to more factor forms and sizes, allowing you to have a nice media control even on the panel.
+它提供了与传统 mediacontroller 部件相同的功能，让你控制系统中的每一个媒体播放器（通过MPRIS2协议），但它适应更多因素的形式和尺寸，让你即使在面板上也能拥有一个漂亮的媒体控制。
 
-You can download it on the [KDE Store](https://store.kde.org/p/1317639/), or use the built-in 'Get New Addons' directly in your plasma desktop.
+三改内容：
+
+- 汉化
+- 在不播放媒体时，不显示文字
 
 ![mediacontroller+ gallery](screenshot.png)
 

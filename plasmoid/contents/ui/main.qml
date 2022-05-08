@@ -86,8 +86,8 @@ Item {
 
     Plasmoid.switchWidth: PlasmaCore.Units.gridUnit * 10
     Plasmoid.switchHeight: PlasmaCore.Units.gridUnit * 8
-    Plasmoid.icon: albumArt ? albumArt : "" //"media-playback-playing"
-    Plasmoid.toolTipMainText: "" //i18n("No media playing")
+    Plasmoid.icon: albumArt ? albumArt : "media-playback-play-pause-symbolic" //"media-playback-playing"
+    Plasmoid.toolTipMainText: " " //i18n("No media playing")
     Plasmoid.toolTipSubText: identity
     Plasmoid.toolTipTextFormat: Text.PlainText
     Plasmoid.status: PlasmaCore.Types.PassiveStatus
@@ -105,11 +105,11 @@ Item {
 
         if (mpris2Source.currentData.CanRaise) {
             var icon = mpris2Source.currentData["Desktop Icon Name"] || ""
-            plasmoid.setAction("open", i18nc("Open player window or bring it to the front if already open", "Open"), icon)
+            plasmoid.setAction("open", i18nc("打开正在播放媒体的窗口或将其置于前台", "打开"), icon)
         }
 
         if (canControl) {
-            plasmoid.setAction("previous", i18nc("Play previous track", "Previous Track"),
+            plasmoid.setAction("previous", i18nc("播放上一首", "上一首"),
                                Qt.application.layoutDirection === Qt.RightToLeft ? "media-skip-forward" : "media-skip-backward");
             plasmoid.action("previous").enabled = Qt.binding(function() {
                 return root.canGoPrevious
@@ -117,24 +117,24 @@ Item {
 
             // if CanPause, toggle the menu entry between Play & Pause, otherwise always use Play
             if (root.state == "playing" && root.canPause) {
-                plasmoid.setAction("pause", i18nc("Pause playback", "Pause"), "media-playback-pause")
+                plasmoid.setAction("pause", i18nc("暂停播放", "暂停"), "media-playback-pause")
                 plasmoid.action("pause").enabled = Qt.binding(function() {
                     return root.state === "playing" && root.canPause;
                 });
             } else {
-                plasmoid.setAction("play", i18nc("Start playback", "Play"), "media-playback-start")
+                plasmoid.setAction("play", i18nc("开始播放", "播放"), "media-playback-start")
                 plasmoid.action("play").enabled = Qt.binding(function() {
                     return root.state !== "playing" && root.canPlay;
                 });
             }
 
-            plasmoid.setAction("next", i18nc("Play next track", "Next Track"),
+            plasmoid.setAction("next", i18nc("播放下一首", "下一首"),
                                Qt.application.layoutDirection === Qt.RightToLeft ? "media-skip-backward" : "media-skip-forward")
             plasmoid.action("next").enabled = Qt.binding(function() {
                 return root.canGoNext
             })
 
-            plasmoid.setAction("stop", i18nc("Stop playback", "Stop"), "media-playback-stop")
+            plasmoid.setAction("stop", i18nc("停止播放", "停止"), "media-playback-stop")
             plasmoid.action("stop").enabled = Qt.binding(function() {
                 return root.state === "playing" || root.state === "paused";
             })
@@ -142,7 +142,7 @@ Item {
 
         if (mpris2Source.currentData.CanQuit) {
             plasmoid.setActionSeparator("quitseparator");
-            plasmoid.setAction("quit", i18nc("Quit player", "Quit"), "application-exit")
+            plasmoid.setAction("quit", i18nc("退出媒体播放器", "退出"), "application-exit")
         }
 
         plasmoid.setActionSeparator("playerActionsSeparator")
@@ -354,7 +354,7 @@ Item {
                 target: plasmoid
                 icon: albumArt ? albumArt : "media-playback-paused"
                 toolTipMainText: track
-                toolTipSubText: artist ? i18nc("by Artist (paused, player name)", "by %1 (paused, %2)", artist, identity) : i18nc("Paused (player name)", "Paused (%1)", identity)
+                toolTipSubText: artist ? i18nc("by Artist (paused, player name)", "by %1 (已暂停, %2)", artist, identity) : i18nc("已暂停 (player name)", "已暂停 (%1)", identity)
             }
         }
     ]

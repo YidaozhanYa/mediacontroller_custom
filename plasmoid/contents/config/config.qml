@@ -21,7 +21,7 @@ import org.kde.plasma.configuration 2.0
 
 ConfigModel {
     ConfigCategory {
-         name: i18n("Panel View")
+         name: i18n("面板视图")
          icon: "preferences-desktop-user"
          source: "configCompactView.qml"
     }

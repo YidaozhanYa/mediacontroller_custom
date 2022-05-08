@@ -78,7 +78,7 @@ ColumnLayout {
         elide: Text.ElideRight
         text: {
             if (!root.track) {
-                return i18n("No media playing")
+                return "" //i18n("No media playing")
             }
             if (lineLimit == 1 && root.artist) {
                 return i18nc("artist – track", "%1 – %2", root.artist, root.track)

@@ -94,7 +94,7 @@ Icon=applications-multimedia
 
 Type=Service
 X-KDE-ServiceTypes=Plasma/Applet
-X-KDE-PluginInfo-Author=Sebastian Kügler
+X-KDE-PluginInfo-Author=Sebastian Kügler / YidaozhanYa
 X-KDE-PluginInfo-Category=Multimedia
 X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-Email=sebas@kde.org

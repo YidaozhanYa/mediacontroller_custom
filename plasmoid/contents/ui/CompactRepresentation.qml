@@ -56,6 +56,7 @@ Item {
         }
     }
 
+
     Item {
         id: miniProgressBar
         z: 0
@@ -118,6 +119,22 @@ Item {
             margins: 0
         }
 
+        TrackInfo {
+            id: trackInfo
+            visible: plasmoid.configuration.showTrackInfo
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.alignment: Qt.AlignVCenter
+            textAlignment: isOnVertical ? Text.AlignHCenter : Text.AlignRight
+            lineLimit: {
+                if (isOnVertical) return 3;
+                if (compactRoot.height > PlasmaCore.Units.gridUnit * 3) return 3;
+                if (compactRoot.height > PlasmaCore.Units.gridUnit * 1.5) return 2;
+                return 1;
+            }
+            spacing: 0
+        }
+
         AlbumArt {
             id: albumArt
             visible: plasmoid.configuration.showAlbumArt
@@ -129,22 +146,6 @@ Item {
             Layout.preferredWidth: isOnVertical ? width : height * aspectRatio
             Layout.minimumHeight: isOnVertical ? width : 0
             Layout.preferredHeight: isOnVertical ? width / aspectRatio : height
-        }
-
-        TrackInfo {
-            id: trackInfo
-            visible: plasmoid.configuration.showTrackInfo
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.alignment: Qt.AlignVCenter
-            textAlignment: isOnVertical ? Text.AlignHCenter : Text.AlignLeft
-            lineLimit: {
-                if (isOnVertical) return 3;
-                if (compactRoot.height > PlasmaCore.Units.gridUnit * 3) return 3;
-                if (compactRoot.height > PlasmaCore.Units.gridUnit * 1.5) return 2;
-                return 1;
-            }
-            spacing: 0
         }
 
         PlayerControls {
